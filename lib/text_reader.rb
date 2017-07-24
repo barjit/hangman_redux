@@ -7,7 +7,7 @@ class TextReader
   end
 
   def read(filename)
-    @words << File.readlines(filename).collect(&:strip).collect(&:downcase)
+    @words = File.readlines(filename).collect(&:strip).collect(&:downcase)
   end
 
 end
