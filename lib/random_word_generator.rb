@@ -1,2 +1,2 @@
-class RandomWordGenerator
+module RandomWordGenerator
 end
