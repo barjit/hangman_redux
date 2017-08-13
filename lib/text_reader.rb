@@ -1,5 +1,4 @@
 class TextReader
-
   attr_reader :words
 
   def initialize
@@ -9,5 +8,4 @@ class TextReader
   def read(filename)
     @words = File.readlines(filename).collect(&:strip).collect(&:downcase)
   end
-
 end
