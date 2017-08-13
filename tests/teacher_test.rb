@@ -11,7 +11,8 @@ class TeacherTest < Minitest::Test
   end
 
   def test_reveal_correct_guess_reveals_all_correct_letters
-    assert_equal %w{p _ p p _ _ _ _ _ _}, @teacher.reveal_correct_guess(@secret_word, @revealed_word, @user_input)
+    @letter_index = @teacher.find_matching_letters(@secret_word, @user_input)
+    assert_equal %w{p _ p p _ _ _ _ _ _}, @teacher.reveal_matching_letters(@letter_index, @revealed_word, @user_input)
   end
   
 end
