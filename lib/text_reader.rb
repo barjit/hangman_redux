@@ -1,11 +1,7 @@
 class TextReader
-  attr_reader :words
+  attr_reader :words_array
 
-  def initialize
-    @words = []
-  end
-
-  def read(filename)
-    @words = File.readlines(filename).collect(&:strip).collect(&:downcase)
+  def initialize(filename)
+    @words_array = File.readlines(filename).collect(&:strip).collect(&:downcase)
   end
 end
