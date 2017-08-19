@@ -4,11 +4,10 @@ class Computer
   attr_accessor :user_input
 
   def get_input
-    puts "Please enter a valid guess: "
-    @user_input = gets.chomp
-    until valid?(user_input)
-      puts "Please enter a valid guess: "
-      @user_input = gets.chomp
+    @user_input = ""
+    until valid?(@user_input)
+      puts "Type 'quit', 'save' or any letter to play on: "
+      @user_input = gets.chomp.downcase
       save_quit_or_play(@user_input)
     end
     @user_input
