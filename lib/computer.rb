@@ -42,11 +42,11 @@ class Computer
     puts " ------------------------------------------------------------------- "
   end
 
-  def game_over_loser_message
-    "You're out of turns, you lose."
+  def game_over_loser_message(secret_word)
+    "You're out of turns, you lose. The correct word was #{secret_word}."
   end
 
-  def game_over_winner_message
-    "That's right, you win!"
+  def game_over_winner_message(secret_word)
+    "That's right, you win! The correct word was #{secret_word}."
   end
 end
