@@ -1,6 +1,6 @@
 class SaveGame
 
-  attr_reader :secret_word, :revealed_word, :guess_history, :turns
+  attr_accessor :secret_word, :revealed_word, :guess_history, :turns
 
   def initialize(secret_word, revealed_word, guess_history, turns)
     @secret_word   = secret_word
