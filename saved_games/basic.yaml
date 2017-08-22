@@ -1,0 +1,13 @@
+--- !ruby/object:SaveGame
+secret_word: canton
+revealed_word:
+- _
+- a
+- _
+- _
+- o
+- _
+guess_history:
+- a
+- o
+turns: 5

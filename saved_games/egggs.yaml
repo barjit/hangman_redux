@@ -1,0 +1,14 @@
+--- !ruby/object:SaveGame
+secret_word: regency
+revealed_word:
+- _
+- e
+- g
+- e
+- _
+- _
+- _
+guess_history:
+- e
+- g
+turns: 2

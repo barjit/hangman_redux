@@ -1,0 +1,18 @@
+--- !ruby/object:SaveGame
+secret_word: bottomless
+revealed_word:
+- _
+- o
+- t
+- t
+- o
+- _
+- _
+- e
+- _
+- _
+guess_history:
+- e
+- o
+- t
+turns: 3

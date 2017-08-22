@@ -1,0 +1,16 @@
+--- !ruby/object:SaveGame
+secret_word: troubling
+revealed_word:
+- _
+- _
+- o
+- _
+- _
+- _
+- i
+- _
+- _
+guess_history:
+- i
+- o
+turns: 6

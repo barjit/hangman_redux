@@ -1,0 +1,16 @@
+--- !ruby/object:SaveGame
+secret_word: parasite
+revealed_word:
+- _
+- a
+- _
+- a
+- _
+- i
+- _
+- e
+guess_history:
+- a
+- e
+- i
+turns: 5
