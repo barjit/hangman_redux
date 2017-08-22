@@ -1,0 +1,24 @@
+--- !ruby/object:SaveGame
+secret_word: pothead
+revealed_word:
+- p
+- o
+- t
+- _
+- e
+- a
+- _
+guess_history:
+- a
+- e
+- b
+- o
+- p
+- t
+- r
+- n
+- m
+- g
+- z
+- i
+turns: 2
