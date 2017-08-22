@@ -3,12 +3,12 @@ require_relative './save_game'
 class Computer
   attr_accessor :user_input
 
-  def get_input
+  def get_input(saved_game)
     @user_input = ""
     until valid?(@user_input)
       puts "Type 'quit', 'save' or any letter to play on: "
       @user_input = gets.chomp.downcase
-      save_quit_or_play(@user_input)
+      save_quit_or_play(@user_input, saved_game)
     end
     @user_input
   end
@@ -23,10 +23,10 @@ class Computer
     end
   end
 
-  def save_quit_or_play(user_input)
+  def save_quit_or_play(user_input, saved_game)
     case user_input
     when "save"
-      SaveGame.call
+      saved_game.call
     when "quit"
       puts "Quitting game, bye!"
       exit
