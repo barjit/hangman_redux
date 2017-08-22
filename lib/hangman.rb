@@ -9,11 +9,11 @@ require_relative './load_game'
 require_relative './save_game'
 
 @text_reader = TextReader.new('5desk.txt')
-@generated = RandomWordGenerator.new(@text_reader.words_array)
-@blackboard = Blackboard.new(@generated.secret_word)
-@teacher = Teacher.new
-@computer = Computer.new
-@player = Player.new
+@generated   = RandomWordGenerator.new(@text_reader.words_array)
+@blackboard  = Blackboard.new(@generated.secret_word)
+@teacher     = Teacher.new
+@computer    = Computer.new
+@player      = Player.new
 
 class Hangman
   def self.start(generated, blackboard, teacher, computer, player)
@@ -30,7 +30,7 @@ class Hangman
       @saved_game = SaveGame.new(@secret_word, @revealed_word, @guess_history,
                                 @turns)
 
-      blackboard.show_revealed_word(@revealed_word, @guess_history)
+      blackboard.show_revealed_word(@revealed_word, @guess_history, @turns)
       computer.get_input(@saved_game)
       @user_input = computer.user_input
 
@@ -38,13 +38,13 @@ class Hangman
                                   @guess_history)
 
       if player.winning_conditions_met?(@secret_word, @revealed_word)
-        puts computer.game_over_winner_message
+        puts computer.game_over_winner_message(@secret_word)
         exit
       end
 
-      @turns -= 1
+      @turns -= 1 unless teacher.nod
     end
-    puts computer.game_over_loser_message
+    puts computer.game_over_loser_message(@secret_word)
   end
 
   def self.load_game
