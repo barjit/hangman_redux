@@ -1,4 +1,4 @@
-  require 'yaml'
+require 'yaml'
 require_relative './text_reader'
 require_relative './random_word_generator'
 require_relative './blackboard'

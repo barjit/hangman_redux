@@ -5,12 +5,18 @@ class Computer
 
   def get_input(saved_game)
     @user_input = ""
-    until valid?(@user_input)
-      puts "Type 'quit', 'save' or any letter to play on: "
+    begin
+      puts "Please type your guess: "
       @user_input = gets.chomp.downcase
-      save_quit_or_play(@user_input, saved_game)
+      unless valid?(@user_input)
+        puts "To quit, type 'quit'. To save, type 'save'. To play, type a single letter!"
+        raise
+      else
+        save_quit_or_play(@user_input, saved_game)
+      end
+    rescue
+      retry
     end
-    @user_input
   end
 
   def valid?(user_input)
