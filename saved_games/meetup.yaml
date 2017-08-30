@@ -1,0 +1,18 @@
+--- !ruby/object:SaveGame
+secret_word: mysteries
+revealed_word:
+- _
+- _
+- _
+- _
+- e
+- _
+- i
+- e
+- _
+guess_history:
+- a
+- e
+- i
+- b
+turns: 8
