@@ -8,6 +8,8 @@ class Teacher
       if confirmed_correct_guess?(letter, user_input)
         revealed_word[@index] = letter
         @nod = true
+      elsif guess_history.include? user_input
+        @nod = true
       end
       @index += 1
     end
