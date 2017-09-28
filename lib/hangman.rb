@@ -27,16 +27,16 @@ class Hangman
                       player.guess_history, player.turns)
     end
 
-    until @turns == 0
+    until @turns.zero?
       @saved_game = SaveGame.new(@secret_word, @revealed_word, @guess_history,
-                                @turns)
+                                 @turns)
 
       blackboard.show_revealed_word(@revealed_word, @guess_history, @turns)
       computer.get_input(@saved_game)
       @user_input = computer.user_input
 
       teacher.reveal_correct_guess(@secret_word, @revealed_word, @user_input,
-                                  @guess_history)
+                                   @guess_history)
 
       if player.winning_conditions_met?(@secret_word, @revealed_word)
         puts computer.game_over_winner_message(@secret_word)
@@ -49,12 +49,12 @@ class Hangman
   end
 
   def self.load_game
-    puts "which game would you like to load?"
-    puts "(don't worry about typing the yaml extention)"
-    saved_games = Dir.glob("./saved_games/*.yaml")
-    saved_games.each { |game| puts game.sub("./saved_games/", "") }
+    puts 'which game would you like to load?'
+    puts '(don\'t worry about typing the yaml extention)'
+    saved_games = Dir.glob('./saved_games/*.yaml')
+    saved_games.each { |game| puts game.sub('./saved_games/', '') }
     filename = "./saved_games/#{gets.strip}.yaml"
-    saved_game = YAML::load(File.open(filename))
+    saved_game = YAML.safe_load(File.open(filename))
 
     @secret_word = saved_game.secret_word
     @revealed_word = saved_game.revealed_word
