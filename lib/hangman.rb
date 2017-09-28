@@ -15,6 +15,7 @@ require_relative './save_game'
 @computer    = Computer.new
 @player      = Player.new
 
+# This is the 'driver' class
 class Hangman
   def self.start(generated, blackboard, teacher, computer, player)
     puts computer.welcome_message

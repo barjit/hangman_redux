@@ -1,15 +1,16 @@
+# This class represents a physical blackboard on which a game would be played.
 class Blackboard
   attr_accessor :revealed_word
 
   def initialize(secret_word)
-    @revealed_word = Array.new(secret_word.length) { "_" }
+    @revealed_word = Array.new(secret_word.length) { '_' }
   end
 
   def show_revealed_word(revealed_word, guess_history, turns)
     print_line
     puts
     revealed_word.each do |letter|
-      print letter + " "
+      print letter + ' '
     end
     print_line
     show_guess_history(guess_history)
@@ -29,6 +30,6 @@ class Blackboard
 
   def print_line
     puts
-    puts "____________________________________________"
+    puts '____________________________________________'
   end
 end
