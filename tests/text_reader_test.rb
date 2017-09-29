@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require_relative '../lib/text_reader'
 
+# Text Reader test
 class TextReaderTest < Minitest::Test
   def setup
     @text_reader = TextReader.new

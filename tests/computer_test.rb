@@ -1,11 +1,12 @@
 require 'minitest/autorun'
 require_relative '../lib/computer'
 
+# Computer test
 class ComputerTest < Minitest::Test
   def setup
     @computer = Computer.new
-    @non_valid_array = ["pop", 32, 12, "^*4", "twelve"]
-    @valid_array = ["a", "g", "p", "o", "g", "w", "f", "T", "L", "n", "Q"]
+    @non_valid_array = ['pop', 32, 12, '^*4', 'twelve']
+    @valid_array = %w[a G s p L F c t w o P]
   end
 
   def test_user_input_valid

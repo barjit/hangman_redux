@@ -1,12 +1,13 @@
 require 'minitest/autorun'
 require_relative '../lib/player'
 
+# Player test
 class PlayerTest < Minitest::Test
   def setup
     @player = Player.new
-    @secret_word = "poppongene"
-    @correct_array = %w{p o p p o n g e n e}
-    @incomplete_array = ["p", "_", "p", "p", "_", "_", "_", "_", "_", "_"]
+    @secret_word = 'poppongene'
+    @correct_array = %w[p o p p o n g e n e]
+    @incomplete_array = %w[p _ p p _ _ _ _ _ _]
     @incorrect_data = 23
   end
 
