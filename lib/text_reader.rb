@@ -1,3 +1,5 @@
+# Text reader, the purpose of this class is to accept a text file
+# and convert it into an array.
 class TextReader
   attr_reader :words_array
 

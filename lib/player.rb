@@ -1,3 +1,6 @@
+# The player class keeps track of the players guess_history and turns. It
+# also checks if the game's winning conditions have been met. Also checks
+# if player would like to load a previous game.
 class Player
   attr_accessor :guess_history, :turns
 

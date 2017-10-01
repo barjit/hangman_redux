@@ -1,3 +1,4 @@
+# The purpose of this class is to generate a random word from the parsed array.
 class RandomWordGenerator
   attr_reader :secret_word
 

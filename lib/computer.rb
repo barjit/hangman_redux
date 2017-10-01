@@ -48,7 +48,7 @@ class Computer
   def welcome_message
     puts ' ------------------------------------------------------------------- '
     puts ' Welcome to Hangman, try to guess the mystery word before your turns '
-    puts 'run out. '
+    puts ' run out. '
     puts ' ------------------------------------------------------------------- '
   end
 

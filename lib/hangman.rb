@@ -24,7 +24,7 @@ class Hangman
       Hangman.load_game
     else
       Hangman.new_game(generated.secret_word, blackboard.revealed_word,
-                      player.guess_history, player.turns)
+                       player.guess_history, player.turns)
     end
 
     until @turns.zero?
