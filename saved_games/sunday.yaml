@@ -1,0 +1,22 @@
+--- !ruby/object:SaveGame
+secret_word: causative
+revealed_word:
+- _
+- a
+- u
+- s
+- a
+- _
+- i
+- v
+- e
+guess_history:
+- a
+- e
+- i
+- o
+- u
+- p
+- v
+- s
+turns: 8

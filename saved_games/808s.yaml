@@ -1,0 +1,20 @@
+--- !ruby/object:SaveGame
+secret_word: traipse
+revealed_word:
+- t
+- _
+- a
+- i
+- _
+- _
+- e
+guess_history:
+- a
+- e
+- i
+- o
+- u
+- t
+- v
+- g
+turns: 6
