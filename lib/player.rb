@@ -14,20 +14,16 @@ class Player
   end
 
   def request_previous_game?
-    begin
-      puts 'Would you like to load a previous game? (yes/no)'
-      choice = gets.chomp
-      case choice
-      when 'yes'
-        true
-      when 'no'
-        false
-      else
-        puts 'Please type \'yes\' or \'no\'.'
-        raise
-      end
-    rescue
-      retry
+    puts 'Would you like to load a previous game? (type "yes" or "no")'
+    case gets.chomp
+    when 'yes'
+      true
+    when 'no'
+      false
+    else
+      raise RuntimeError
     end
+  rescue RuntimeError
+    retry
   end
 end
