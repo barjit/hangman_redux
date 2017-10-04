@@ -8,19 +8,16 @@ class Computer
   attr_accessor :user_input
 
   def get_input(saved_game)
-    @user_input = ''
-    begin
-      puts 'Please type your guess: '
-      @user_input = gets.chomp.downcase
-      if valid?(@user_input)
-        save_quit_or_play(@user_input, saved_game)
-      else
-        puts "Type 'quit' or 'save' otherwise type a single letter!"
-        raise
-      end
-    rescue
-      retry
+    puts 'Please type your guess: '
+    @user_input = gets.chomp.downcase
+    if valid?(@user_input)
+      save_quit_or_play(@user_input, saved_game)
+    else
+      puts "Type 'quit' or 'save' otherwise type a single letter!"
+      raise RuntimeError
     end
+  rescue RuntimeError
+    retry
   end
 
   def valid?(user_input)
