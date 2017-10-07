@@ -8,6 +8,11 @@ class Teacher
                            guess_history)
     @index = 0
     @nod = false
+    compare(secret_word, revealed_word, user_input, guess_history)
+    store_history(guess_history, user_input)
+  end
+
+  def compare(secret_word, revealed_word, user_input, guess_history)
     secret_word.split('').map do |letter|
       if confirmed_correct_guess?(letter, user_input)
         revealed_word[@index] = letter
@@ -17,7 +22,6 @@ class Teacher
       end
       @index += 1
     end
-    store_history(guess_history, user_input)
   end
 
   def store_history(guess_history, user_input)
