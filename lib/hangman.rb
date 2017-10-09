@@ -37,7 +37,7 @@ class Hangman
       computer.get_input(@saved_game)
       @user_input = computer.user_input
       Hangman.show_correct_guess(teacher)
-      Hangman.game_winning_conditions_met(player)
+      Hangman.game_winning_conditions_met(player, computer)
       @turns -= 1 unless teacher.nod
     end
   end
@@ -52,7 +52,7 @@ class Hangman
                                  @guess_history)
   end
 
-  def self.game_winning_conditions_met
+  def self.game_winning_conditions_met(player, computer)
     puts computer.game_over_winner_message(@secret_word) if
     player.winning_conditions_met?(@secret_word, @revealed_word)
   end
@@ -63,7 +63,7 @@ class Hangman
     saved_games = Dir.glob('./saved_games/*.yaml')
     saved_games.each { |game| puts game.sub('./saved_games/', '') }
     filename = "./saved_games/#{gets.strip}.yaml"
-    saved_game = YAML.load_safe(File.open(filename))
+    saved_game = YAML.safe_load(File.open(filename), [SaveGame])
 
     Hangman.assign_game_variables(saved_game)
   end
