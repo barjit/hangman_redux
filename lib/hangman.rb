@@ -63,8 +63,12 @@ class Hangman
     saved_games = Dir.glob('./saved_games/*.yaml')
     saved_games.each { |game| puts game.sub('./saved_games/', '') }
     filename = "./saved_games/#{gets.strip}.yaml"
-    saved_game = YAML.load(File.open(filename))
+    saved_game = YAML.load_safe(File.open(filename))
 
+    Hangman.assign_game_variables(saved_game)
+  end
+
+  def self.assign_game_variables(saved_game)
     @secret_word = saved_game.secret_word
     @revealed_word = saved_game.revealed_word
     @guess_history = saved_game.guess_history
