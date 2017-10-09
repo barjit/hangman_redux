@@ -26,26 +26,35 @@ class Hangman
       Hangman.new_game(generated.secret_word, blackboard.revealed_word,
                        player.guess_history, player.turns)
     end
+    Hangman.check_turns(blackboard, computer, teacher, player)
+    puts computer.game_over_loser_message(@secret_word)
+  end
 
+  def self.check_turns(blackboard, computer, teacher, player)
     until @turns.zero?
-      @saved_game = SaveGame.new(@secret_word, @revealed_word, @guess_history,
-                                 @turns)
-
+      Hangman.save_current_progress
       blackboard.show_revealed_word(@revealed_word, @guess_history, @turns)
       computer.get_input(@saved_game)
       @user_input = computer.user_input
-
-      teacher.reveal_correct_guess(@secret_word, @revealed_word, @user_input,
-                                   @guess_history)
-
-      if player.winning_conditions_met?(@secret_word, @revealed_word)
-        puts computer.game_over_winner_message(@secret_word)
-        exit
-      end
-
+      Hangman.show_correct_guess(teacher)
+      Hangman.game_winning_conditions_met(player)
       @turns -= 1 unless teacher.nod
     end
-    puts computer.game_over_loser_message(@secret_word)
+  end
+
+  def self.save_current_progress
+    @saved_game = SaveGame.new(@secret_word, @revealed_word, @guess_history,
+                               @turns)
+  end
+
+  def self.show_correct_guess(teacher)
+    teacher.reveal_correct_guess(@secret_word, @revealed_word, @user_input,
+                                 @guess_history)
+  end
+
+  def self.game_winning_conditions_met
+    puts computer.game_over_winner_message(@secret_word) if
+    player.winning_conditions_met?(@secret_word, @revealed_word)
   end
 
   def self.load_game

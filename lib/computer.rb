@@ -54,6 +54,7 @@ class Computer
   end
 
   def game_over_winner_message(secret_word)
-    "That's right, you win! The correct word was #{secret_word}."
+    puts "That's right, you win! The correct word was #{secret_word}."
+    exit
   end
 end
