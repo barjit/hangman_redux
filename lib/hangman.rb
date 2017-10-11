@@ -17,7 +17,7 @@ require_relative './save_game'
 
 # This is the 'driver' class
 class Hangman
-  def start(generated, blackboard, teacher, computer, player)
+  def play(generated, blackboard, teacher, computer, player)
     puts computer.welcome_message
 
     if player.request_previous_game?
@@ -73,4 +73,4 @@ class Hangman
 end
 
 game = Hangman.new
-game.start(@generated, @blackboard, @teacher, @computer, @player)
+game.play(@generated, @blackboard, @teacher, @computer, @player)
