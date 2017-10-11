@@ -21,7 +21,7 @@ class Hangman
     puts computer.welcome_message
 
     if player.request_previous_game?
-      load_game
+      assign_game_variables(LoadGame.call)
     else
       new_game(generated.secret_word, blackboard.revealed_word,
                player.guess_history, player.turns)
@@ -55,17 +55,6 @@ class Hangman
   def game_winning_conditions_met(player, computer)
     puts computer.game_over_winner_message(@secret_word) if
     player.winning_conditions_met?(@secret_word, @revealed_word)
-  end
-
-  def load_game
-    puts 'which game would you like to load?'
-    puts '(don\'t worry about typing the yaml extention)'
-    saved_games = Dir.glob('./saved_games/*.yaml')
-    saved_games.each { |game| puts game.sub('./saved_games/', '') }
-    filename = "./saved_games/#{gets.strip}.yaml"
-    saved_game = YAML.safe_load(File.open(filename), [SaveGame])
-
-    assign_game_variables(saved_game)
   end
 
   def assign_game_variables(saved_game)
